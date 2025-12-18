@@ -1,0 +1,9 @@
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#include <functional>
+using namespace __gnu_pbds;
+typedef tree<int, null_type, less<int>, rb_tree_tag,
+             tree_order_statistics_node_update>
+    ordered_set;
+// s.order_of_key(x) = number of elements strictly less than x
+// *s.find_by_order(i) = ith element in set (0 index)
