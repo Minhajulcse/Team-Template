@@ -4,7 +4,7 @@ This script allows you to generate a PDF notebook of your competitive programmin
 
 ### Repository Structure
 
-The code is organized by topic in the `code/` directory:
+The code is organized by topic in the `code/` directory.
 
 ### Required Packages
 
