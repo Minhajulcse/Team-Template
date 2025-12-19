@@ -1,39 +1,24 @@
-vector<vector<int>> adj;  // adjacency list representation
-int n;                    // number of nodes
-int s;                    // source vertex
+#include <bits/stdc++.h>
+using namespace std;
 
-void bfs() {
-  queue<int> q;
-  vector<int> d(n), p(n);
-  vector<bool> used(n);
+const int N = 1e5;
+bool vis[N];
+int level[N];
+std::vector<int> tree[N];
 
-  q.push(s);
-  used[s] = true;
-  p[s] = -1;
-  while (!q.empty()) {
-    int v = q.front();
-    q.pop();
-    for (int u : adj[v]) {
-      if (!used[u]) {
-        used[u] = true;
-        q.push(u);
-        d[u] = d[v] + 1;
-        p[u] = v;
+void bfs(int source) {
+  queue < int > q;
+  q.push(source);
+  vis[source] = true;
+  while(!q.empty()) {
+    int cur_v = q.front(); q.pop();
+    
+    for(int child : tree[cur_v]) {
+      if(vis[child] == false) {
+        q.push(child);
+        vis[child] = true;
+        level[child] = level[cur_v] + 1;
       }
     }
   }
-}
-
-// retrieving shortest path
-
-if (!used[u]) {
-  cout << "No path!";
-} else {
-  vector<int> path;
-  for (int v = u; v != -1; v = p[v])
-    path.push_back(v);
-  reverse(path.begin(), path.end());
-  cout << "Path: ";
-  for (int v : path)
-    cout << v << " ";
 }
