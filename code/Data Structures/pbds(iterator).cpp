@@ -216,25 +216,43 @@ struct OST {
         return iterator(ans);
     }
 };
-/*
-OST<int> st;
 
+/*
+<--------Using int------->
+OST<int> st;
 st.insert(5);
 st.insert(2);
 st.insert(10);
 st.insert(5);
 
-for(auto x : st)
-    cout << x << " ";
-cout << "\n";
+cout << st.find_by_order(1) << endl; // 5
+cout << st.order_of_key(6) << endl;  // 3
+cout << st.lower_bound(6) << endl;   // 10
+cout << st.upper_bound(5) << endl;   // 10
+*/
 
-auto it = st.lower_bound(5);
-cout << *it << "\n";
+/*
+<------Using string------->
+OST<string> st;
+st.insert("apple");
+st.insert("banana");
+st.insert("banana");
+st.insert("orange");
 
-auto it2 = st.upper_bound(5);
-cout << *it2 << "\n";
+cout << st.find_by_order(1) << endl;     // banana
+cout << st.order_of_key("banana") << endl; // 1
+cout << st.lower_bound("ball") << endl;  // banana
+*/
 
-it = st.begin();
-++it;
-cout << *it << "\n";
+/*
+<----Using pair<int,int> (lexicographic)--->
+OST<pair<int,int>> st;
+
+st.insert({2,3});
+st.insert({1,5});
+st.insert({2,1});
+
+cout << st.find_by_order(0).first << endl; // 1
+cout << st.order_of_key({2,0}) << endl;    // 1
+
 */
