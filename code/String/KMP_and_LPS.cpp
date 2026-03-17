@@ -41,5 +41,5 @@ vi kmp(string &s, string &pat) {
             }
         }
     }
-    return ans;
+    return ans; // which point
 }
