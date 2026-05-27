@@ -6,15 +6,12 @@ int phi(int n) {
             if(n % i == 0 ) {
                   res/= i;
                   res *= (i - 1);
-                  while(n % i == 0) {
-                        n/=i;
-                  }
+                  while(n % i == 0)n/=i;
             }
       }
       if(n > 1) {
             res /= n;
             res *= (n - 1);
       }
-
       return res;
 }
