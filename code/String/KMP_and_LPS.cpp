@@ -32,7 +32,7 @@ vi kmp(string &s, string &pat) {
             ans.pb(i-j+1);
             j = lps[j-1];
         }
-        else if(s[i] != pat[j]) {
+        else if(i < n and s[i] != pat[j]) {
             if(j != 0) {
                 j = lps[j-1];
             }
